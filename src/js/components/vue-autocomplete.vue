@@ -257,7 +257,8 @@
 
         let self = this;
 
-        if (val.length < this.min) return;
+        if(!val) return;
+        if (val.length < this.min ) return;
 
         if(this.url != null){
 
@@ -288,7 +289,7 @@
             let json = JSON.parse(this.responseText);
 
             // Callback Event
-            this.onAjaxLoaded ? this.onAjaxLoaded(json) : null
+            self.onAjaxLoaded ? self.onAjaxLoaded(json) : null
 
             self.json = self.process ? self.process(json) : json;
           });
